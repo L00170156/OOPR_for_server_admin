@@ -18,7 +18,7 @@ if __name__ == '__main__':
     count = 1
     ans = ""
 
-    while guess!=num:
+    while guess!=num && count <=6:
         if guess>num:
             print("The number you guessed is too high")
             print("Would you like to guess again")
@@ -29,7 +29,7 @@ if __name__ == '__main__':
             else:
                 print("Thank you for playing the game")
                 break
-        elif guess < num:
+        else:
             print("The number you guessed is too low")
             print("Would you like to guess again")
             ans = input("Please enter Y/N")
@@ -39,8 +39,8 @@ if __name__ == '__main__':
             else:
                 print("Thank you for playing the game")
                 break
-        else:
-            print("Congratulations, you have guessed the right number")
-            print("The correct number was " + str(num))
+    
+    print("Congratulations, you have guessed the right number")
+    print("The correct number was " + str(num))
     print("Game Over")
 
