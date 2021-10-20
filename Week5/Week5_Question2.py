@@ -1,5 +1,5 @@
 """
-# 
+#
 # File      : Week5_Question2.py
 # Created   : 19/10/2021 17:39
 # Author    : M. Curley
@@ -11,12 +11,24 @@
 """
 import base64
 
+
+def encrypt_password(password):
+    my_password = password.encode("utf-8")
+    encoded = base64.b64encode(my_password)
+    return encoded
+
+
+def decrypt_password(encoded):
+    my_encoded = encoded.encode("utf-8")
+    decoded = base64.b64decode(my_encoded)
+    return decoded
+
+
 if __name__ == '__main__':
+    import timeit
 
-    password = "my_password".encode("utf-8")
+    encode = encrypt_password("Michael")
 
-    encoded = base64.b64encode(password)
-    print(encoded)
+    print(timeit.timeit("encrypt_password('Michael')", setup="from __main__ import encrypt_password"))
 
-    decoded = base64.b64decode(encoded)
-    print(decoded)
+    print(timeit.timeit("decrypt_password(encode)", setup="from __main__ import decrypt_password"))
